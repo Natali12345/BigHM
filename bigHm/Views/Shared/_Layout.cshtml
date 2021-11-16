@@ -1,0 +1,52 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+
+    <link href="~/css/index.css" rel="stylesheet" />
+    <link href="~/css/menu.css" rel="stylesheet" />
+    <link href="~/css/account.css" rel="stylesheet" />
+    <link href="~/css/prod.css" rel="stylesheet" />
+    <script src="~/jquery/jquery.js"></script>
+</head>
+<body>
+    <div>
+
+        <div id="menu">
+            <a id="a1" asp-controller="home" asp-action="index"> <div class="img2d>"><img id="img2" src="~/Pictures/home.png" /></div> <div id="hn">Home</div></a>
+            <a id="a2" asp-controller="product" asp-action="showproducts"><div id="sn">Search Products</div></a>
+            <div id="a3"></div>
+            @if (!User.Identity.IsAuthenticated)
+            {
+            <a id="a4" asp-controller="account" asp-action="loginwindow"><div id="rn">Registration/Login</div></a>
+            }
+            else
+            {
+       <div id="boxlog"><div id="welcome">Welcome @User.Identity.Name</div>  <a id="logout" asp-controller="account" asp-action="logout">Log out</a></div>
+            }
+        </div>
+
+
+
+
+
+        @if (TempData.TryGetValue("ShowLogin", out object res) && (bool)res)
+        {<partial name="LoginWindow.cshtml" />
+
+        }
+        else if (TempData.TryGetValue("showRegistration", out object res2) && (bool)res2)
+        {<partial name="RegistrationWindow.cshtml" />
+
+        }
+
+        <div id="content">
+            @RenderBody()
+        </div>
+        <div id="footer">Natali</div>
+    </div>
+</body>
+</html>
+<script>
+
+
+</script>

@@ -1,0 +1,59 @@
+﻿<div class="blur">
+    <div class="box">
+        <img class="img1" src="/Pictures/welcome.jpg">
+        <img class="closeLogin" src="~/Pictures/close.png" />
+        <form class="formm" action="/Account/CreateRegistration" method="post">
+            <div class="choose">
+                <a class="links" id="link1" href="/account/loginwindow"><div>Log In</div></a>
+                <a class="links" id="link2" href="/account/registrationwindow"><div>Registration</div></a>
+            </div>
+            <div class="error">
+                @TempData["LoginError"]
+            </div>
+            <div class="data">
+                <label class="dataem">Email address:</label>
+                <input name="email" class="input1" type="email"> 
+            </div>
+
+            <div class="data">
+                <label class="datapas">Password:</label>
+                <input name="password" class="input2" type="password">
+            </div>
+
+            <div class="data">
+                <label class="datarep">Repeat Password:</label>
+                <input name="password2" class="input3" type="password">
+            </div>
+
+            <div id="sizer"></div>
+
+            <div id="btnc"><button class="btncli" type="submit">Sign in</button></div>
+
+        </form>
+    </div>
+</div>
+
+<script>
+
+
+        $(document).ready(() => {
+            $("#footer").addClass("bluring");
+            $("#content").addClass("bluring");
+            $("#menu").addClass("bluring");
+
+        });
+
+
+        $(".closeLogin").click(() => {
+               $("#footer").removeClass("bluring");
+            $("#content").removeClass("bluring");
+            $("#menu").removeClass("bluring");
+            $(".blur").remove();
+
+        });
+
+
+
+
+
+</script>

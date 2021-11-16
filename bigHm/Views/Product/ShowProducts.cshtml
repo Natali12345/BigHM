@@ -1,0 +1,61 @@
+﻿@model bigHm.Models.ProductGenreViewModel
+    <div id="bigBox">
+        <form asp-controller="Product" asp-action="ShowProducts" method="get">
+            <div id="boxchoose">
+                <label for="color">Color:</label>
+                <select class="select" name="color" asp-items="Model.Colors">
+                    <option value="">All</option>
+                </select>
+                <label for="price">Price:</label>
+                <select class="select" name="price">
+                    <option value="0" selected="selected">All</option>
+                    <option value="1">0 < 100</option>
+                    <option value="2">100 < 500</option>
+                    <option value="3">500 < 1000</option>
+                    <option value="4">1000+ </option>
+                </select>
+
+                <label for="SearchString">Search:</label><input type="text" name="SearchString" />
+                <input id="btns" type="submit" value="Filter" />
+            </div>
+        </form>
+
+        <div id="tablebox">
+            <div class="scroll-table">
+                <table  cellpadding="0" cellspacing="0" id="tb1">
+                    <thead>
+                        <tr>
+                            <th>ProductId</th>
+                            <th>Name</th>
+                            <th>ProductNumber</th>
+                            <th>Color</th>
+                            <th>Size</th>
+                            <th>ListPrice</th>
+                        </tr>
+                    <thead>
+                </table>
+
+                <div class="scroll-table-body">
+                 
+
+                        <table cellpadding="0" cellspacing="0" id="tb2">
+                            <tbody>
+                                @foreach (bigHm.Product p in Model.Products)
+                                {
+                                    <tr>
+                                       <td>@p.ProductId</td>
+                                        <td>@p.Name</td>
+                                        <td>@p.ProductNumber</td>
+                                        <td>@p.Color</td>
+                                        <td>@p.Size</td>
+                                        <td>@p.ListPrice</td>
+                                    </tr>
+
+                                }
+                                </tbody>
+                        </table>
+                                
+                </div>
+            </div>
+        </div>
+    </div>
