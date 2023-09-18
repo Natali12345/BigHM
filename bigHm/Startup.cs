@@ -45,11 +45,9 @@ namespace bigHm
                 app.UseDeveloperExceptionPage();
             }
             app.UseAuthentication();
-            
-           
-            app.UseStaticFiles();
             app.UseRouting();
-app.UseAuthorization();
+            app.UseStaticFiles();
+            app.UseAuthorization();
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapDefaultControllerRoute();

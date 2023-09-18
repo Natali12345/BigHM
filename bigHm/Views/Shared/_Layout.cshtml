@@ -30,7 +30,14 @@
 
 
 
-        @if (TempData.TryGetValue("ShowLogin", out object res) && (bool)res)
+        @if (TempData.TryGetValue("ShowLogin", out object res) && (bool)res)// what this mean? because it dictionary, we use TryGetValue
+            //when normal ShowLogin not in tempdata, so TryGetValue return false
+            //when want do login, ShowLogin is in tempdata, and res is the value
+            //res wil be true
+            //we use out object res because Tempdata is dictionary key, object.
+            //so this if make sure key exist, and value is true// ok but for what this? 
+            //if true show login see partial  if true what? i no so understand! i have controller action why need this?
+            //if ShowLogin is true !
         {<partial name="LoginWindow.cshtml" />
 
         }

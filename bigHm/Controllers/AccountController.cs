@@ -25,7 +25,7 @@ namespace bigHm.Controllers
         }
         public IActionResult LoginWindow()
         {
-            TempData["ShowLogin"] = true;
+            TempData["ShowLogin"] = true; 
             return RedirectToAction("Index", "Home");
         }
         public IActionResult RegistrationWindow()
